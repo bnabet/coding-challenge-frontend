@@ -1,26 +1,37 @@
 import React from 'react';
-import logo from './logo.svg';
+
+// Components
+import List from './components/List';
+
+// Styles
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+	state = {
+		practitioners: [],
+	};
+
+	componentDidMount() {
+		fetch('http://hapi.fhir.org/baseDstu3/Practitioner?_format=json')
+			.then(response => response.json())
+			.then(data => {
+				// Verify if name exists
+				const practitioners = data.entry.filter(contact => contact.resource.name);
+
+				this.setState({ practitioners: practitioners });
+			})
+			.catch(console.log);
+	}
+
+	render() {
+		const { practitioners } = this.state;
+
+		return (
+			<div className="App">
+				<List practitioners={practitioners} />
+			</div>
+		);
+	}
 }
 
 export default App;
