@@ -1,0 +1,9 @@
+.practitioner {
+    border: 1px solid #9c9c9c;
+    margin: 20px;
+    padding: 15px;
+}
+
+ul ul {
+	margin: inherit;
+}
