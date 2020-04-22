@@ -32,7 +32,7 @@ const Card = props => {
 	return (
 		<div className={'practitioner' + (active ? ' active' : '')} key={practitionerId}>
 			<div>
-				{prefix || suffix} {text ? text : <span>{given} {familyName}</span>}
+				{prefix || suffix} {(familyName || given) ? <span>{given} {familyName}</span> : text}
 			</div>
 			<Link to={`/practitioners/${practitionerId}`}>Details</Link>
 		</div>
