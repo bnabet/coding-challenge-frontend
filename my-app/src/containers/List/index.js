@@ -13,7 +13,7 @@ import Wrapper from '../../hoc/Wrapper';
 // Styles
 import './style.css';
 
-const defaultUrl = 'http://hapi.fhir.org/baseDstu3/Practitioner?_format=json';
+const defaultUrl = 'https://hapi.fhir.org/baseDstu3/Practitioner?_format=json';
 
 class List extends React.Component {
 	state = {

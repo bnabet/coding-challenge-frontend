@@ -154,7 +154,7 @@ class Practitioner extends React.Component {
 			body: JSON.stringify(this.state.practitioner),
 		};
 
-		fetch(`http://hapi.fhir.org/baseDstu3/Practitioner/${this.state.practitioner.id}`, putMethod)
+		fetch(`https://hapi.fhir.org/baseDstu3/Practitioner/${this.state.practitioner.id}`, putMethod)
 			.then(response => response.json())
 			.then(json => this.props.history.push(`/practitioners`))
 			.catch(error => {
@@ -168,7 +168,7 @@ class Practitioner extends React.Component {
 		this.setState({ loading: true });
 		const practitionerId = this.props.match.params.practitionerId;
 
-		fetch(`http://hapi.fhir.org/baseDstu3/Practitioner/${practitionerId}`)
+		fetch(`https://hapi.fhir.org/baseDstu3/Practitioner/${practitionerId}`)
 			.then(response => response.json())
 			.then(data => {
 				const hasPractitioner = Object.keys(data).length;

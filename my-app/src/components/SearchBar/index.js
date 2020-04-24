@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
 	};
 
 	handleSubmit = (event, query) => {
-		const searchUrl = `http://hapi.fhir.org/baseDstu3/Practitioner?given=${query}&_format=json&_pretty=true`;
+		const searchUrl = `https://hapi.fhir.org/baseDstu3/Practitioner?given=${query}&_format=json&_pretty=true`;
 		this.props.fetchList(searchUrl);
 		event.preventDefault();
 	};
