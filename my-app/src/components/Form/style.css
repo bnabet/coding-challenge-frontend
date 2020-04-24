@@ -1,0 +1,161 @@
+.form-fieldset {
+	border-bottom: 1px solid #eaebeb;
+	border: 0;
+	margin: 0 0 30px 0;
+	padding: 0 0 15px 0;
+}
+
+.form-fieldset:last-of-type {
+	border: 0;
+}
+
+.form-legend {
+	font-family: 'gilroysemibold';
+	font-size: 22px;
+	font-weight: normal;
+	line-height: 28px;
+	margin-bottom: 15px;
+	text-transform: capitalize;
+}
+
+.form-field {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+	margin-bottom: 25px;
+}
+
+.form-field-extensions {
+	display: -webkit-box;
+	display: flex;
+}
+
+.input--default--extension {
+	margin-right: 10px;
+	max-width: 100px;
+}
+
+.form-label {
+	color: #7c8384;
+	display: block;
+	font-family: 'gilroymedium';
+	margin-bottom: 8px;
+	text-transform: capitalize;
+}
+
+.form-select {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	align-self: flex-start;
+	background-color: #f4f4f4;
+	background-image: url('/assets/icons/down-arrow.svg');
+	background-position: calc(100% - 25px) center;
+	background-repeat: no-repeat;
+	background-size: 15px;
+	border-radius: 9px;
+	border: 1px solid #f4f4f4;
+	color: #212529;
+	-webkit-box-flex: 1;
+	flex: 1 1 auto;
+	font-family: 'gilroymedium';
+	font-size: 16px;
+	line-height: 23px;
+	margin-right: 15px;
+	padding: 10px 60px 10px 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.1s;
+}
+
+.input--default--date {
+	align-self: flex-start;
+}
+
+.form-bottom {
+	margin: 50px 0;
+	text-align: center;
+}
+
+.form-submit {
+	background-color: #5ddbb4;
+	border-radius: 4px;
+	border: 1px solid #53d6bf;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+	color: #ffffff;
+	display: inline-block;
+	font-family: 'gilroybold';
+	font-size: 18px;
+	min-width: 120px;
+	padding: 14px 28px;
+	text-align: center;
+	-webkit-transition: 0.1s;
+	transition: 0.1s;
+}
+
+.form-submit:hover {
+	background-color: #53d6bf;
+}
+
+.form-group {
+	-webkit-box-align: center;
+	align-items: center;
+	display: -webkit-box;
+	display: flex;
+}
+
+.form-delete {
+	background-image: url('/assets/icons/delete.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	cursor: pointer;
+	display: inline-block;
+	height: 30px;
+	margin-left: 15px;
+	text-indent: -9999px;
+	width: 30px;
+}
+
+.form-add {
+	cursor: pointer;
+	margin-bottom: 25px;
+}
+
+@media screen and (max-width: 480px) {
+	.form-fieldset {
+		margin: 0;
+	}
+
+	.form-legend {
+		font-size: 18px;
+		margin-bottom: 10px;
+	}
+
+	.form-field {
+		margin-bottom: 15px;
+	}
+
+	.form-label {
+		font-size: 14px;
+	}
+
+	.form-group {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		flex-direction: column;
+	}
+
+	.form-field-extensions {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		flex-direction: column;
+	}
+
+	.input--default--extension {
+		margin-bottom: 10px;
+	}
+
+	.form-select {
+		width: 100%;
+	}
+}

@@ -1,0 +1,68 @@
+.content-totalResults {
+	color: #7c8384;
+	display: block;
+	font-family: 'gilroymedium';
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+.content-noResults {
+	background-color: #ddedf7;
+	border-radius: 4px;
+	border: 1px solid #d2dee4;
+	color: #7c8384;
+	font-family: 'gilroymedium';
+	font-size: 16px;
+	margin-bottom: 10px;
+	padding: 25px 25px;
+	text-align: center;
+}
+
+.content-title {
+	color: #ffffff;
+	font-family: 'gilroylight';
+	font-size: 36px;
+	line-height: 54px;
+	margin-bottom: 20px;
+	text-align: center;
+}
+
+/* Pagination */
+.content-pagination {
+	padding: 30px;
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	-webkit-box-pack: center;
+	justify-content: center;
+}
+
+.pagination-button {
+	margin: 0 15px;
+	border: 0;
+	padding: 10px 20px;
+	background-color: #5ddbb4;
+	border-radius: 4px;
+	color: #ffffff;
+	font-family: 'gilroysemibold';
+	font-size: 16px;
+	-webkit-transition: 0.1s;
+	transition: 0.1s;
+}
+
+.pagination-button:hover {
+	background-color: #53d6bf;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+	.content-title {
+		font-size: 22px;
+		margin-bottom: 0px;
+	}
+
+	.content-pagination {
+		padding: 20px;
+	}
+}

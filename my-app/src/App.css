@@ -1,75 +1,174 @@
+/***** FONTS *****/
+@font-face {
+	font-family: 'gilroylight';
+	src: url('/fonts/gilroy-light-webfont.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'gilroyregular';
+	src: url('/fonts/gilroy-regular-webfont.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'gilroymedium';
+	src: url('/fonts/gilroy-medium-webfont.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'gilroysemibold';
+	src: url('/fonts/gilroy-semibold-webfont.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'gilroybold';
+	src: url('/fonts/gilroy-bold-webfont.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'gilroyextrabold';
+	src: url('/fonts/gilroy-extrabold-webfont.woff2') format('woff2');
+}
+
+/***** ELEMENTS *****/
 body {
-	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
-		'Helvetica Neue', sans-serif;
-	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+	background-image: url('/assets/background.svg');
+	background-position: top 0px center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color: #272625;
+	font-family: 'gilroyregular', sans-serif;
+	line-height: 1;
+	min-height: 100vh;
 }
 
-fieldset {
-    border-style: solid;
-    border-color: #9c9c9c;
-    border-width: 1px;
-    margin-bottom: 20px;
+input:not([type='checkbox']) {
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background-image: linear-gradient(transparent, transparent);
 }
 
-legend {
-    font-weight: bold;
-    padding: 0 6px;
+[type='checkbox'] {
+	display: none;
 }
 
-label {
-    font-size: 13px;
-    margin-bottom: 5px;
-    margin-right: 8px;
-    display: inline-block;
-    font-weight: 500;
+[type='checkbox']:checked + label,
+[type='checkbox']:not(:checked) + label {
+	display: inline-block;
+	font-size: 16px;
+	line-height: 30px;
+	padding-left: 40px;
+	position: relative;
 }
 
-label > span {
-    margin-right: 5px;
+[type='checkbox']:checked + label:before,
+[type='checkbox']:not(:checked) + label:before {
+	content: '';
+	background-color: #ffffff;
+	border-radius: 9px;
+	border: 2px solid #c7c7c7;
+	display: inline-block;
+	height: 26px;
+	left: 0;
+	line-height: 26px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 26px;
 }
 
-small {
-    margin-bottom: 10px;
-    display: block;
-    text-align: right;
+[type='checkbox']:checked + label:after,
+[type='checkbox']:not(:checked) + label:after {
+	content: '\2714';
+	color: #2da2d8;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 20px;
+	height: 30px;
+	left: 0;
+	line-height: 30px;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 30px;
 }
 
-ul ul {
-	margin: inherit;
+[type='checkbox']:not(:checked) + label:after {
+	opacity: 0;
 }
 
-input[type="text"] {
-    border: 1px solid #ccc;
+[type='checkbox']:checked + label:after {
+	opacity: 1;
 }
 
-input.valid {
-    background: #e4e4e4;
+*::placeholder {
+	opacity: 0.5;
 }
 
-select:not(.selected) {
-    opacity: .6;
+/***** CUSTOM *****/
+.input--default {
+	background-color: #f4f4f4;
+	border-radius: 9px;
+	border: 1px solid #f4f4f4;
+	color: #212529;
+	flex: 1 1 auto;
+	font-family: 'gilroymedium';
+	font-size: 18px;
+	line-height: 23px;
+	padding: 10px 20px;
+	transition: 0.1s;
+}
+
+.input--default:focus {
+	background-color: #ffffff;
+	border-color: #dedfdf;
+}
+
+.link--default {
+	text-decoration: none;
+}
+
+/***** CONTAINERS *****/
+.App {
+	align-items: stretch;
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 }
 
 .page {
+	flex: 1 1 auto;
+	margin: auto;
+	max-width: 1315px;
+	width: 100%;
+}
+
+.page-content {
+	margin-bottom: 30px;
 	padding: 30px;
 }
 
-.contact-add {
-    padding: 2px 6px;
-    background: #ccc;
-    display: inline-block;
-    font-size: 12px;
-    margin-top: 10px;
-    cursor: pointer;
+.content-container {
+	background-color: #ffffff;
+	border-radius: 9px;
+	box-shadow: 0 2px 14px 0 rgba(0, 0, 0, 0.1);
+	padding: 30px;
 }
 
-.contact-delete {
-    background: #e65858;
-    color: #fff;
-    font-size: 12px;
-    padding: 2px 6px;
-    margin-left: 8px;
-    cursor: pointer;
+@media screen and (max-width: 480px) {
+	.page-content {
+		margin: 0;
+		padding: 10px 20px 20px;
+	}
+
+	.content-container {
+		padding: 20px;
+	}
+
+	.input--default {
+		font-size: 16px;
+		line-height: 20px;
+		padding: 10px 15px;
+	}
 }

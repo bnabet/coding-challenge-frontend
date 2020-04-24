@@ -1,0 +1,43 @@
+.nav-list {
+	display: -webkit-box;
+	display: flex;
+}
+
+.nav-link {
+	color: rgba(255, 255, 255, 0.7);
+	font-family: 'gilroybold';
+	margin: 0 20px;
+	position: relative;
+	-webkit-transition: 0.1s;
+	transition: 0.1s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+	color: #ffffff;
+}
+
+.nav-link.active:after {
+	content: '';
+	background-color: #ffffff;
+	border-radius: 2px;
+	bottom: -13px;
+	display: block;
+	height: 2px;
+	left: 0;
+	margin: auto;
+	position: absolute;
+	right: 0;
+	z-index: 10;
+}
+
+@media screen and (max-width: 480px) {
+	.nav-link {
+		font-size: 15px;
+		margin: 0 10px;
+	}
+
+	.nav-link.active:after {
+		bottom: -7px;
+	}
+}

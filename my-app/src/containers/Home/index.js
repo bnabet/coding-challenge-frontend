@@ -1,9 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Home = props => (
-	<div>
-		Hello Leah ! <Link to="/practitioners">List of practitioners</Link>
+// Components
+import Header from '../../components/Header';
+
+// Styles
+import './style.css';
+
+const Home = () => (
+	<div className="app-container component-home">
+		<div className="page">
+			<Header />
+
+			<div className="home-inner">
+				<div className="home-icon"></div>
+				<Link to="/practitioners" className="home-link">
+					Search a doctor
+				</Link>
+			</div>
+		</div>
 	</div>
 );
 
