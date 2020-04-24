@@ -182,7 +182,7 @@ class Practitioner extends React.Component {
 
 	render() {
 		const { practitioner, loading } = this.state;
-		const { title } = this.props.location.state;
+		const { title } = this.props.location.state || '';
 
 		let content = null;
 
