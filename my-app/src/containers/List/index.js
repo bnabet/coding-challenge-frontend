@@ -57,9 +57,9 @@ class List extends React.Component {
 		this.setState({ loading: true });
 
 		// Fix HTTPS issue (mixed content type)
-		if (url) {
-			let urlArray = url.split('http');
-			url = 'https' + urlArray[1];
+		if (url && url.indexOf('https:') === -1) {
+			let urlArray = url.split('http:');
+			url = 'https:' + urlArray[1];
 		}
 
 		fetch(url ? url : defaultUrl)

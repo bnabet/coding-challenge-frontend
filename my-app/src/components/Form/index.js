@@ -34,6 +34,7 @@ const Form = props => {
 										type="text"
 										name={'name_' + key}
 										value={value}
+										placeholder={key}
 										onChange={event => handleInputChange(event, index)}
 										className={'input--default' + (value.length ? ' valid' : '')}
 									/>
@@ -45,6 +46,7 @@ const Form = props => {
 											type="text"
 											name="name_family"
 											value={value.valueString}
+											placeholder="family extensions"
 											onChange={event => handleInputChange(event, index, extensionIndex)}
 											className="input--default input--default--extension"
 											key={key}
@@ -85,6 +87,7 @@ const Form = props => {
 						type="number"
 						name="qualification_code"
 						value={(practitioner.qualification && practitioner.qualification[0].code.coding[0].code) || ''}
+						placeholder="code"
 						onChange={event => handleInputChange(event)}
 						className={
 							'input--default' +
@@ -103,6 +106,7 @@ const Form = props => {
 						value={
 							(practitioner.qualification && practitioner.qualification[0].code.coding[0].display) || ''
 						}
+						placeholder="display"
 						onChange={event => handleInputChange(event)}
 						className={
 							'input--default' +
@@ -167,6 +171,7 @@ const Form = props => {
 							(practitioner.address && (practitioner.address[0].line || practitioner.address[0].text)) ||
 							''
 						}
+						placeholder="line/text"
 						onChange={event => handleInputChange(event)}
 						className={
 							'input--default' +
@@ -183,6 +188,7 @@ const Form = props => {
 						type="text"
 						name="address_city"
 						value={(practitioner.address && practitioner.address[0].city) || ''}
+						placeholder="city"
 						onChange={event => handleInputChange(event)}
 						className={
 							'input--default' + (practitioner.address && practitioner.address[0].city ? ' valid' : '')
@@ -196,6 +202,7 @@ const Form = props => {
 						type="text"
 						name="address_state"
 						value={(practitioner.address && practitioner.address[0].state) || ''}
+						placeholder="state"
 						onChange={event => handleInputChange(event)}
 						className={
 							'input--default' + (practitioner.address && practitioner.address[0].state ? ' valid' : '')
@@ -209,6 +216,7 @@ const Form = props => {
 						type="number"
 						name="address_postalCode"
 						value={(practitioner.address && practitioner.address[0].postalCode) || ''}
+						placeholder="postal code"
 						onChange={event => handleInputChange(event)}
 						className={
 							'input--default' +
@@ -223,6 +231,7 @@ const Form = props => {
 						type="text"
 						name="address_country"
 						value={(practitioner.address && practitioner.address[0].country) || ''}
+						placeholder="country"
 						onChange={event => handleInputChange(event)}
 						className={
 							'input--default' + (practitioner.address && practitioner.address[0].country ? ' valid' : '')
@@ -264,6 +273,7 @@ const Form = props => {
 									type="text"
 									name="telecom_value"
 									value={item.value || ''}
+									placeholder="contact"
 									onChange={event => handleInputChange(event, index)}
 									className={'input--default' + (item.value ? ' valid' : '')}
 								/>
@@ -303,6 +313,7 @@ const Form = props => {
 						type="date"
 						name="profile_birthDate"
 						value={practitioner.birthDate || ''}
+						placeholder="birthdate"
 						onChange={event => handleInputChange(event)}
 						className="input--default input--default--date"
 					/>
