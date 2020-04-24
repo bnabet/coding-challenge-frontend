@@ -56,6 +56,12 @@ class List extends React.Component {
 	fetchList = url => {
 		this.setState({ loading: true });
 
+		// Fix HTTPS issue (mixed content type)
+		if (url) {
+			let urlArray = url.split('http');
+			url = 'https' + urlArray[1];
+		}
+
 		fetch(url ? url : defaultUrl)
 			.then(response => response.json())
 			.then(data => {
