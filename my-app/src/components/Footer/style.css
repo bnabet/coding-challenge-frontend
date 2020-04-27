@@ -69,8 +69,21 @@
 }
 
 .contact-link {
-	color: #272625;
-	font-size: 20px;
+	align-self: center;
+    color: #272625;
+    font-size: 20px;
+    position: relative;
+}
+
+.contact-link:hover:after {
+    content: "";
+    background: #272625;
+    display: block;
+    height: 1px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    width: 100%;
 }
 
 .footer-divider {
@@ -88,6 +101,11 @@
 }
 
 @media screen and (max-width: 1024px) {
+	.footer {
+		background-size: 500vw;
+		padding-top: 65vw;
+	}
+
 	.footer-infos {
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;

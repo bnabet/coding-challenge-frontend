@@ -1,20 +1,20 @@
 .profile-top {
-	-webkit-box-align: center;
+    -webkit-box-align: center;
 	align-items: center;
-	border-bottom: 1px solid #eaebeb;
-	display: -webkit-box;
-	display: flex;
-	margin-bottom: 30px;
-	padding-bottom: 30px;
+    border-bottom: 5px solid #f5f5f5;
+    display: -webkit-box;
+    display: flex;
+    margin-bottom: 50px;
+    padding-bottom: 30px;
 }
 
 .profile-icon {
 	background-color: #ccc;
-	background-image: url(/assets/icons/doctor.svg);
-	background-position: center 11px;
+	background-position: center;
 	background-repeat: no-repeat;
 	background-size: 100%;
 	border-radius: 50%;
+	flex-shrink: 0;
 	height: 80px;
 	margin-right: 30px;
 	width: 80px;
@@ -33,6 +33,7 @@
 
 .profile-description {
 	font-family: 'gilroysemibold';
+	font-size: 18px;
 	opacity: 0.5;
 }
 
@@ -43,30 +44,14 @@
 	opacity: 0.5;
 }
 
-@media screen and (min-width: 481px) {
+/* Responsive */
+@media screen and (min-width: 768px) {
 	.content-container.content-container--profile {
 		padding: 60px;
 	}
 }
 
-/* Responsive */
 @media screen and (max-width: 480px) {
-	.profile-link {
-		border-radius: 50%;
-		height: 30px;
-		padding: 0;
-		text-indent: -9999px;
-		width: 30px;
-	}
-
-	.profile-link:after {
-		background-size: 30px;
-		height: 30px;
-		right: 0;
-		top: 0;
-		width: 30px;
-	}
-
 	.content-container--profile {
 		padding: 30px 20px;
 	}
@@ -81,19 +66,22 @@
 		padding-bottom: 20px;
 	}
 
-	.profile-title {
-		font-size: 28px;
-		line-height: 34px;
-		margin-bottom: 5px;
-	}
-
-	.profile-updated {
-		font-size: 13px;
-	}
-
 	.profile-icon {
 		height: 60px;
 		margin: 0 auto 25px;
 		width: 60px;
+	}
+
+	.profile-title {
+		font-size: 28px;
+		line-height: 34px;
+	}
+
+	.profile-description {
+		font-size: 16px;
+	}
+
+	.profile-updated {
+		font-size: 13px;
 	}
 }

@@ -38,7 +38,7 @@ const Footer = () => (
 				</div>
 			</div>
 			<hr className="footer-divider" />
-			<div className="footer-copyright">Created by Benjamin Nabet - 2020</div>
+			<div className="footer-copyright">Developed by Benjamin Nabet - 2020</div>
 		</div>
 	</footer>
 );

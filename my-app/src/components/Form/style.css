@@ -1,3 +1,7 @@
+.component-form {
+	overflow: hidden;
+}
+
 .form-fieldset {
 	border-bottom: 1px solid #eaebeb;
 	border: 0;
@@ -12,7 +16,6 @@
 .form-legend {
 	font-family: 'gilroysemibold';
 	font-size: 22px;
-	font-weight: normal;
 	line-height: 28px;
 	margin-bottom: 15px;
 	text-transform: capitalize;
@@ -24,7 +27,12 @@
 	-webkit-box-orient: vertical;
 	-webkit-box-direction: normal;
 	flex-direction: column;
-	margin-bottom: 25px;
+	margin-top: 25px;
+	position: relative;
+}
+
+.form-legend + .form-field {
+    margin: 0;
 }
 
 .form-field-extensions {
@@ -32,17 +40,11 @@
 	display: flex;
 }
 
-.input--default--extension {
-	margin-right: 10px;
-	max-width: 100px;
-}
-
 .form-label {
 	color: #7c8384;
 	display: block;
 	font-family: 'gilroymedium';
 	margin-bottom: 8px;
-	text-transform: capitalize;
 }
 
 .form-select {
@@ -54,47 +56,27 @@
 	background-position: calc(100% - 25px) center;
 	background-repeat: no-repeat;
 	background-size: 15px;
-	border-radius: 9px;
-	border: 1px solid #f4f4f4;
-	color: #212529;
+	border-radius: 4px;
+	border: 1px solid #dedfdf;
+	color: #272625;
 	-webkit-box-flex: 1;
 	flex: 1 1 auto;
 	font-family: 'gilroymedium';
 	font-size: 16px;
 	line-height: 23px;
-	margin-right: 15px;
 	padding: 10px 60px 10px 20px;
 	-webkit-transition: 0.1s;
 	transition: 0.1s;
 }
 
-.input--default--date {
-	align-self: flex-start;
+.form-grid {
+	display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    grid-gap: 15px;
 }
 
-.form-bottom {
-	margin: 50px 0;
-	text-align: center;
-}
-
-.form-submit {
-	background-color: #5ddbb4;
-	border-radius: 4px;
-	border: 1px solid #53d6bf;
-	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
-	color: #ffffff;
-	display: inline-block;
-	font-family: 'gilroybold';
-	font-size: 18px;
-	min-width: 120px;
-	padding: 14px 28px;
-	text-align: center;
-	-webkit-transition: 0.1s;
-	transition: 0.1s;
-}
-
-.form-submit:hover {
-	background-color: #53d6bf;
+.form-grid--4 {
+	grid-template-columns: repeat(3, minmax(150px,1fr));
 }
 
 .form-group {
@@ -104,26 +86,96 @@
 	display: flex;
 }
 
-.form-delete {
-	background-image: url('/assets/icons/delete.svg');
-	background-repeat: no-repeat;
-	background-size: contain;
-	cursor: pointer;
-	display: inline-block;
-	height: 30px;
-	margin-left: 15px;
-	text-indent: -9999px;
-	width: 30px;
+.form-group-inner {
+    -webkit-box-align: stretch;
+	align-items: stretch;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-flex: 1;
+	flex: 1 1 auto;
+    padding-right: 15px;
 }
 
 .form-add {
-	cursor: pointer;
-	margin-bottom: 25px;
+    margin-top: 20px;
+}
+
+.form-bottom {
+	margin: 50px 0;
+	text-align: center;
+}
+
+.form-error {
+    color: rgb(255, 83, 9);
+    font-family: 'gilroysemibold';
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.form-divider {
+    border-bottom: 1px solid #dedfdf;
+    border-top: 0;
+    margin: 30px auto;
+    overflow: visible;
+    position: relative;
+    text-align: center;
+}
+
+.form-divider:after {
+    content: "or";
+    background-color: #ffffff;
+    bottom: -9px;
+    color: #7c8384;
+    display: block;
+    font-family: 'gilroymedium';
+    font-size: 18px;
+    left: 0;
+    line-height: 20px;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    width: 50px;
+    z-index: 200;
+}
+
+.submit-error {
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+	.form-group {
+		-webkit-box-align: stretch;
+		align-items: stretch;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+		flex-direction: column;
+	}
+
+	.form-group-inner {
+		margin-bottom: 15px;
+		padding-right: 0;
+	}
+
+	.icon.form-delete {
+		background: #f24536;
+		border-radius: 4px;
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+		color: #ffffff;
+		font-family: 'gilroybold';
+		font-size: 16px;
+		height: auto;
+		line-height: 20px;
+		margin: 10px 0 15px;
+		padding: 11px 20px;
+		text-transform: capitalize;
+		width: auto;
+	}
 }
 
 @media screen and (max-width: 480px) {
 	.form-fieldset {
-		margin: 0;
+		margin: 0 0 20px 0;
 	}
 
 	.form-legend {
@@ -132,18 +184,7 @@
 	}
 
 	.form-field {
-		margin-bottom: 15px;
-	}
-
-	.form-label {
-		font-size: 14px;
-	}
-
-	.form-group {
-		-webkit-box-orient: vertical;
-		-webkit-box-direction: normal;
-		flex-direction: column;
-		align-items: stretch;
+		margin-top: 15px;
 	}
 
 	.form-field-extensions {
@@ -152,28 +193,17 @@
 		flex-direction: column;
 	}
 
-	.input--default--extension {
-		margin-bottom: 10px;
-	}
-
 	.form-select {
-		width: 100%;
 		margin: 0;
+		width: 100%;
 	}
+}
 
+@media screen and (min-width: 769px) {
 	.form-delete {
-		background: #f24536;
-		text-indent: 0;
-		text-align: center;
-		border-radius: 4px;
-		margin: 15px 0 20px;
-		color: #ffffff;
-		text-transform: capitalize;
-		font-family: 'gilroybold';
-		font-size: 18px;
-		height: auto;
-		line-height: 48px;
-		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
-		width: auto;
+		background-image: url(/assets/icons/delete.svg);
+		background-size: contain;
+		margin-left: 15px;
+		text-indent: -9999px;
 	}
 }

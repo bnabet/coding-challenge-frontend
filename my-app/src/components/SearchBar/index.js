@@ -26,7 +26,7 @@ class SearchBar extends React.Component {
 				<form className="search-form" onSubmit={event => this.handleSubmit(event, query)}>
 					<label className="search-label">Looking for a practitioner ?</label>
 					<div className="search-description">
-						Search a doctor by his first name. If you are looking for a baker you are on the wrong site ...
+						Search a doctor by his first name. If you are looking for a baker you are on the wrong site&nbsp;...
 					</div>
 					<div className="search-inner">
 						<input

@@ -1,56 +1,44 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Components
+import Name from '../Name'
+
 // Styles
 import './style.css';
 
 const Article = props => {
 	const { practitioner, avatar } = props;
-	const practitionerId = practitioner.resource.id;
-	const active = practitioner.resource.active;
-	const name = practitioner.resource.name;
+	const data = practitioner.resource;
 
-	// civility
-	const prefix = name[0].prefix ? name[0].prefix[0] : '';
-	const suffix = name[0].suffix ? name[0].suffix[0] : '';
+	let qualification = 'Practitioner';
 
-	// firstname
-	const firstname = name[name.length - 1].given ? name[name.length - 1].given.join(' ') : '';
-
-	// lastname
-	let lastname;
-
-	if (name[name.length - 1].family) {
-		lastname = name[name.length - 1].family;
-	} else if (name[name.length - 1]._family) {
-		lastname = name[name.length - 1]._family.extension.map(item => item.valueString).join(' ');
-	} else {
-		lastname = name[0].text;
+	if (data.qualification && data.qualification[0].code.coding[0].display) {
+		qualification = data.qualification[0].code.coding[0].display;
 	}
 
-	const identity = [prefix, suffix, firstname, lastname]
-		.filter(item => item !== undefined)
-		.filter(item => item !== '')
-		.join(' ');
+	const id = data.id;
+	const name = data.name;
+	const active = data.active ? 'active' : 'inactive';
 
 	return (
-		<article className="component-practitioner article" key={practitionerId}>
-			<div className={'article-icon avatar-' + avatar}></div>
+		<article className="component-practitioner article" key={id}>
+			<div className={`article-icon avatar-${avatar}`}></div>
 			<div className="article-identity">
 				<Link
 					to={{
-						pathname: `/practitioners/${practitionerId}`,
+						pathname: `/practitioners/${id}`,
 						state: {
-							title: identity,
-						},
+							avatar: avatar
+						}
 					}}
 					className="article-link">
-					{identity}
+					<Name name={name} />
 				</Link>
-				<span className="article-resourceType">{practitioner.resource.resourceType}</span>
+				<span className="article-resourceType">{qualification}</span>
 			</div>
 			<div className="article-status">
-				<div className={'status-label' + (active ? ' active' : '')}>{active ? 'active' : 'inactive'}</div>
+				<div className={`status-label ${active}`}>{active}</div>
 			</div>
 		</article>
 	);

@@ -14,9 +14,7 @@ const Home = () => (
 
 			<div className="home-inner">
 				<div className="home-icon"></div>
-				<Link to="/practitioners" className="home-link">
-					Search a doctor
-				</Link>
+				<Link to="/practitioners" className="btn btn--large btn--green">Search a doctor</Link>
 			</div>
 		</div>
 	</div>

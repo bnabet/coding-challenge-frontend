@@ -30,6 +30,18 @@
 }
 
 /***** ELEMENTS *****/
+html {
+  	height: 100%;
+}
+
+body, #root {
+  	min-height: 100%;
+}
+
+html * {
+	box-sizing: border-box !important;
+}
+
 body {
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-font-smoothing: antialiased;
@@ -40,12 +52,209 @@ body {
 	color: #272625;
 	font-family: 'gilroyregular', sans-serif;
 	line-height: 1;
-	min-height: 100vh;
+	position: relative;
+}
+
+h1, h2, h3, h4 {
+	font-weight: normal;
+}
+
+/***** CUSTOM *****/
+.flex {
+	display: -webkit-box;
+	display: flex;
+}
+
+.flex-column {
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	flex-direction: column;
+}
+
+.flex-start {
+	-webkit-box-align: start;
+	align-items: flex-start;
+}
+
+/* Buttons */
+.btn {
+	-webkit-box-align: center;
+	align-items: center;
+	background-color: transparent;
+	cursor: pointer;
+	-webkit-box-pack: center;
+	justify-content: center;
+	line-height: 30px;
+    border-radius: 4px;
+    border: 1px solid;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.1);
+    display: -webkit-inline-box;
+    display: inline-flex;
+    font-family: 'gilroybold';
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    -webkit-transition: 0.1s;
+    transition: 0.1s;
+}
+
+.btn--large {
+    font-size: 20px;
+    padding: 15px 35px;
+    font-family: 'gilroyextrabold';
+}
+
+.btn--icon {
+	position: relative;
+}
+
+.btn--icon--left {
+	padding-left: 64px;
+}
+
+.btn--icon--right {
+	padding-right: 64px;
+}
+
+.btn--icon:after {
+	content: '';
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: 30px;
+	display: block;
+	height: 30px;
+	position: absolute;
+	top: 8px;
+	width: 30px;
+}
+
+.btn--icon--left:after {
+	left: 20px;
+}
+
+.btn--icon--right:after {
+	right: 20px;
+}
+
+.btn--green {
+    background-color: #5ddbb4;
+    border-color: #53d6bf;
+    color: #ffffff;
+}
+
+.btn--green:hover {
+	background-color: #53d6bf;
+}
+
+.btn--github {
+    background-color: rgba(255, 255, 255, 0.25);
+    border-color: transparent !important;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.btn--github:after {
+	opacity: 0.6;
+	-webkit-transition: 0.1s;
+	transition: 0.1s;
+}
+
+.btn--github:hover {
+	background-color: #53d6bf;
+	color: #ffffff;
+}
+
+.btn--github:hover:after {
+	opacity: 1;
+}
+
+.btn--disabled {
+	background-color: #f4f4f4;
+    border-color: #dedfdf;
+    color: #ccc;
+}
+
+/* Icons */
+.icon {
+	background-position: center;
+	background-repeat: no-repeat;
+	border: 0;
+    width: 30px;
+    height: 30px;
+    display: inline-block;
+}
+
+.icon--left {
+	margin-right: 15px;
+}
+
+.icon--right {
+	margin-left: 15px;
+}
+
+.icon--github {
+	background-image: url(/assets/icons/github.svg);
+	background-size: 30px;
+}
+
+.icon--previous {
+	background-image: url(/assets/icons/arrow-previous.svg);
+	background-size: 20px;
+}
+
+.icon--next {
+	background-image: url(/assets/icons/arrow-next.svg);
+	background-size: 20px;
+}
+
+.icon--disabled {
+	cursor: default;
+	pointer-events: none;
+    opacity: .2;
+}
+
+/* Inputs */
+.input--default {
+	background-color: #f4f4f4;
+	border-radius: 4px;
+	border: 1px solid #dedfdf;
+	color: #272625;
+	-webkit-box-flex: 1;
+	flex: 1 1 auto;
+	font-family: 'gilroymedium';
+	font-size: 16px;
+	line-height: 23px;
+	padding: 10px 20px;
+	-webkit-transition: 0.1s;
+	transition: 0.1s;
+}
+
+.input--default:focus {
+	background-color: #ffffff;
+}
+
+.input--default--extension {
+	margin-right: 10px;
+	max-width: 100px;
+}
+
+.input--default--date {
+	align-self: flex-start;
+}
+
+.input--small {
+	-webkit-box-flex: inherit;
+	        flex: inherit;
+}
+
+.input--error {
+	background-color: #f7e9e9 !important;
+    border-color: #d8b4b4;
 }
 
 input:not([type='checkbox']) {
 	-moz-appearance: none;
 	-webkit-appearance: none;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(transparent), to(transparent));
 	background-image: linear-gradient(transparent, transparent);
 }
 
@@ -81,7 +290,7 @@ input:not([type='checkbox']) {
 [type='checkbox']:checked + label:after,
 [type='checkbox']:not(:checked) + label:after {
 	content: '\2714';
-	color: #2da2d8;
+	color: #2296d1;
 	cursor: pointer;
 	display: inline-block;
 	font-size: 20px;
@@ -102,42 +311,45 @@ input:not([type='checkbox']) {
 	opacity: 1;
 }
 
+*::-webkit-input-placeholder {
+	opacity: 0.5;
+}
+
+*::-moz-placeholder {
+	opacity: 0.5;
+}
+
+*:-ms-input-placeholder {
+	opacity: 0.5;
+}
+
+*::-ms-input-placeholder {
+	opacity: 0.5;
+}
+
 *::placeholder {
 	opacity: 0.5;
 }
 
-/***** CUSTOM *****/
-.input--default {
-	background-color: #f4f4f4;
-	border-radius: 9px;
-	border: 1px solid #f4f4f4;
-	color: #212529;
-	flex: 1 1 auto;
-	font-family: 'gilroymedium';
-	font-size: 18px;
-	line-height: 23px;
-	padding: 10px 20px;
-	transition: 0.1s;
-}
-
-.input--default:focus {
-	background-color: #ffffff;
-	border-color: #dedfdf;
-}
-
+/* Links */
 .link--default {
 	text-decoration: none;
 }
 
 /***** CONTAINERS *****/
 .App {
+	-webkit-box-align: stretch;
 	align-items: stretch;
+	display: -webkit-box;
 	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
 	flex-direction: column;
-	min-height: 100vh;
+	height: 100%;
 }
 
 .page {
+	-webkit-box-flex: 1;
 	flex: 1 1 auto;
 	margin: auto;
 	max-width: 1315px;
@@ -156,6 +368,26 @@ input:not([type='checkbox']) {
 	padding: 30px;
 }
 
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+	.btn--github {
+		background: none;
+		border-radius: 50% !important;
+		border: 0 !important;
+		display: inline-block;
+		font-size: 0;
+		height: 30px;
+		margin: 0;
+		opacity: .7;
+		padding: 0 !important;
+		width: 30px;
+	}
+
+	.icon--github {
+		margin: 0 !important;
+	}
+}
+
 @media screen and (max-width: 480px) {
 	.page-content {
 		margin: 0;
@@ -166,9 +398,39 @@ input:not([type='checkbox']) {
 		padding: 20px;
 	}
 
+	.btn:not(.btn--large) {
+		padding: 5px 16px;
+	}
+
+	.btn--large {
+		font-size: 18px;
+		padding: 10px 30px;
+	}
+
+	.icon--left {
+		margin-right: 10px;
+	}
+
+	.icon--right {
+		margin-left: 10px;
+	}
+
+	.icon--previous,
+	.icon--next {
+		background-size: 18px;
+	}
+
 	.input--default {
 		font-size: 16px;
 		line-height: 20px;
 		padding: 10px 15px;
+	}
+
+	.input--default--extension {
+		margin-bottom: 10px;
+	}
+
+	.input--default.search-input {
+		padding: 10px 45px 10px 15px;
 	}
 }

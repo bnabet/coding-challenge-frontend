@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 // Components
 import Header from '../../components/Header';
@@ -65,12 +66,15 @@ class List extends React.Component {
 		fetch(url ? url : defaultUrl)
 			.then(response => response.json())
 			.then(data => {
+				let practitioners = [];
 				// Verify if "name" object and "given" property exist
-				let practitioners = data.entry
-					.filter(contact => contact.resource.name)
-					.filter(contact => contact.resource.name[0].given);
-				// Remove duplicates
-				practitioners = this.distinctNames(practitioners);
+				if (data.entry) {
+					practitioners = data.entry
+						.filter(contact => contact.resource.name)
+						.filter(contact => contact.resource.name[0].given);
+					// Remove duplicates
+					practitioners = this.distinctNames(practitioners);
+				}
 
 				this.setState({
 					practitioners: practitioners,
@@ -85,12 +89,17 @@ class List extends React.Component {
 			});
 	};
 
+	backHistory = () => {
+		this.props.history.push(`/practitioners`);
+	}
+
 	componentDidMount() {
 		this.fetchList();
 	}
 
 	render() {
 		const { practitioners, link, totalResults, loading } = this.state;
+		const title = totalResults > 0 ? 'Results of your search' : 'List of the practitioners';
 
 		let content = null;
 
@@ -111,27 +120,34 @@ class List extends React.Component {
 						})}
 
 					{practitioners.length === 0 && (
-						<div className="content-noResults" id="noResults">
-							No results on this page...
-							<span role="img" aria-label="smiley sorry">
-								😰
-							</span>
+						<div className="content-noResults">
+							<div className="noResults-notification" id="noResults">
+								No results... <span role="img" aria-label="smiley sorry" className="noResults-smiley">😰</span>
+							</div>
+							<Link to="/" className="content-back link--default">Back to home</Link>
 						</div>
 					)}
 
-					<div className="content-pagination">
-						{link[2] && link[2].relation === 'previous' && (
-							<button className="pagination-button" onClick={() => this.fetchList(link[2].url)}>
-								PREV
-							</button>
-						)}
+					{(link[1] || link[2]) &&
+						<div className="content-pagination">
+							{link[2] && link[2].relation === 'previous' && (
+								<Wrapper>
+									<div className="pagination-button" onClick={() => this.fetchList(link[2].url)}>
+										<i className="icon icon--left icon--previous"></i>
+										Prev
+									</div>
+									<span className="pagination-divider">|</span>
+								</Wrapper>
+							)}
 
-						{link[1] && link[1].relation === 'next' && (
-							<button className="pagination-button" onClick={() => this.fetchList(link[1].url)}>
-								NEXT
-							</button>
-						)}
-					</div>
+							{link[1] && link[1].relation === 'next' && (
+								<div className="pagination-button" onClick={() => this.fetchList(link[1].url)}>
+									Next
+									<i className="icon icon--right icon--next"></i>
+								</div>
+							)}
+						</div>
+					}
 				</Wrapper>
 			);
 		}
@@ -144,10 +160,7 @@ class List extends React.Component {
 					<SearchBar fetchList={this.fetchList} />
 
 					<section className="page-content">
-						<div className="content-title">
-							{totalResults > 0 ? 'Results of your search' : 'List of the practitioners'}
-						</div>
-
+						<div className="content-title">{title}</div>
 						<div className="content-container">{content}</div>
 					</section>
 				</div>

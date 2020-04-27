@@ -9,10 +9,6 @@ import './style.css';
 
 const Header = () => (
 	<header className="component-header">
-		<NavLink to="/" className="header-title link--default">
-			<h1>Leah</h1>
-		</NavLink>
-
 		<Navigation />
 
 		<div className="header-profile">
@@ -21,8 +17,9 @@ const Header = () => (
 				target="_blank"
 				rel="noopener noreferrer"
 				title="Go to the Github project - new window"
-				className="profile-link link--default">
+				className="btn btn--github">
 				Benjamin Nabet
+				<i className="icon icon--right icon--github"></i>
 			</a>
 		</div>
 	</header>

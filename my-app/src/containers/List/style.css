@@ -7,6 +7,10 @@
 }
 
 .content-noResults {
+    text-align: center;
+}
+
+.noResults-notification {
 	background-color: #ddedf7;
 	border-radius: 4px;
 	border: 1px solid #d2dee4;
@@ -16,6 +20,18 @@
 	margin-bottom: 10px;
 	padding: 25px 25px;
 	text-align: center;
+}
+
+.noResults-smiley {
+	margin-left: 5px;
+}
+
+.content-back {
+    border-bottom: 1px solid;
+    color: #2296d1;
+    display: inline-block;
+    font-family: 'gilroymedium';
+    margin: 15px auto;
 }
 
 .content-title {
@@ -29,30 +45,32 @@
 
 /* Pagination */
 .content-pagination {
-	padding: 30px;
-	display: -webkit-box;
-	display: flex;
 	-webkit-box-align: center;
 	align-items: center;
+	display: -webkit-box;
+	display: flex;
 	-webkit-box-pack: center;
 	justify-content: center;
+	padding: 30px;
 }
 
 .pagination-button {
-	margin: 0 15px;
-	border: 0;
-	padding: 10px 20px;
-	background-color: #5ddbb4;
-	border-radius: 4px;
-	color: #ffffff;
-	font-family: 'gilroysemibold';
-	font-size: 16px;
-	-webkit-transition: 0.1s;
-	transition: 0.1s;
+	cursor: pointer;
+    -webkit-box-align: center;
+	align-items: center;
+    color: #7c8384;
+    display: -webkit-box;
+    display: flex;
+    font-family: 'gilroysemibold';
+    font-size: 20px;
+    margin: 0 15px;
 }
 
-.pagination-button:hover {
-	background-color: #53d6bf;
+.pagination-divider {
+    color: #eaebeb;
+    font-family: 'gilroymedium';
+    font-size: 20px;
+    margin: 0 15px;
 }
 
 /* Responsive */
@@ -64,5 +82,10 @@
 
 	.content-pagination {
 		padding: 20px;
+	}
+
+	.pagination-button {
+		margin: 0 10px;
+		font-size: 16px;
 	}
 }
